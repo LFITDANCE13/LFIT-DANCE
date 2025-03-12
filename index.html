@@ -45,6 +45,20 @@
             border: 1px solid white;
             padding: 10px;
         }
+        .gallery {
+            margin-top: 20px;
+            position: relative;
+            width: 80%;
+            margin: auto;
+        }
+        .gallery img {
+            width: 100%;
+            height: auto;
+            display: none;
+        }
+        .active {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -62,6 +76,14 @@
     </header>
     
     <div class="container">
+        <h2>Galerie Photos & Vidéos</h2>
+        <div class="gallery">
+            <img class="active" src="PHOTO-2025-03-12-15-39-30.jpg" alt="Photo 1">
+            <img src="PHOTO-2025-03-12-15-39-30 (003).jpg" alt="Photo 2">
+            <img src="PHOTO-2025-03-12-15-39-30 (004).jpg" alt="Photo 3">
+            <img src="PHOTO-2025-03-12-15-39-30 (005).jpg" alt="Photo 4">
+        </div>
+        
         <h2>Nos cours</h2>
         <div class="course" onclick="toggleDescription('cab')">
             <img src="https://via.placeholder.com/100" alt="Cuisses Abdos Fessiers">
@@ -137,6 +159,15 @@
                 element.classList.add('hidden');
             }
         }
+        
+        let index = 0;
+        const images = document.querySelectorAll(".gallery img");
+        function showNextImage() {
+            images[index].classList.remove("active");
+            index = (index + 1) % images.length;
+            images[index].classList.add("active");
+        }
+        setInterval(showNextImage, 3000);
     </script>
 </body>
 </html>
