@@ -3,98 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LFIT&DANCE - Fitness & Bien-être</title>
+    <title>LFIT&DANCE - Association Sportive</title>
     <style>
         body {
+            background-color: #ff00ff;
+            color: white;
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #ffe6f2;
-            color: #333;
             text-align: center;
         }
-        header {
-            background-color: #ff66b2;
-            color: white;
-            padding: 20px;
-            font-size: 24px;
-            font-weight: bold;
-        }
-        .title {
-            font-size: 36px;
-            font-weight: bold;
-            color: #ff66b2;
-            margin: 20px 0;
-        }
         .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            margin: auto;
         }
         .course {
             margin: 20px 0;
-            padding: 15px;
-            background: #ffb3d9;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2);
             border-radius: 10px;
+            cursor: pointer;
         }
-        .btn {
-            display: inline-block;
+        .hidden {
+            display: none;
+        }
+        .social-links a {
+            color: white;
             margin: 10px;
-            padding: 10px 20px;
-            background: #ff66b2;
-            color: white;
             text-decoration: none;
-            border-radius: 5px;
         }
-        .btn:hover {
-            background: #e60073;
+        .course img {
+            width: 100px;
+            height: auto;
+            display: block;
+            margin: auto;
         }
-        .media-container {
-            margin: 20px 0;
-        }
-        iframe {
+        .schedule-table {
             width: 100%;
-            max-width: 600px;
-            height: 350px;
-            border-radius: 10px;
-        }
-        footer {
             margin-top: 20px;
+            border-collapse: collapse;
+        }
+        .schedule-table th, .schedule-table td {
+            border: 1px solid white;
             padding: 10px;
-            background: #ff66b2;
-            color: white;
         }
     </style>
 </head>
 <body>
-    <header>Association Sportive - Fitness & Bien-être</header>
-    <div class="title">LFIT&DANCE</div>
+    <header>
+        <h1>Bienvenue chez LFIT&DANCE</h1>
+        <p>Association sportive à Meyreuil</p>
+        <h2>Adhésion</h2>
+        <p>Pour les nouvelles adhérentes, le prix d'adhésion est de 10,00€.</p>
+        <h2>Tarifs</h2>
+        <p>1 cours = 5,00€</p>
+        <p>Forfait 5 cours = 22,50€</p>
+        <p>Forfait 12 cours = 48,00€</p>
+        <h2>Contact</h2>
+        <p>Email : <a href="mailto:lfit-dance@outlook.fr" style="color: yellow;">lfit-dance@outlook.fr</a></p>
+    </header>
+    
     <div class="container">
-        <h2>Nos Cours</h2>
-        <div class="course">Cuisses Abdos Fessiers</div>
-        <div class="course">Cardio Dance</div>
-        <div class="course">Cardio Training</div>
-        <div class="course">Pilates</div>
-        
-        <h2>Réservez votre place</h2>
-        <a href="https://www.rezapp.com" class="btn" target="_blank">Réserver via RezApp</a>
-        
-        <h2>Galerie Photos & Vidéos</h2>
-        <div class="media-container">
-            <img src="https://via.placeholder.com/600x350" alt="Photo d'un cours" style="width:100%; border-radius:10px;">
+        <h2>Nos cours</h2>
+        <div class="course" onclick="toggleDescription('cab')">
+            <img src="https://via.placeholder.com/100" alt="Cuisses Abdos Fessiers">
+            Cuisses Abdos Fessiers
         </div>
-        <div class="media-container">
-            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
-        </div>
+        <p id="cab" class="hidden">Cours de renforcement musculaire ciblé.</p>
         
-        <h2>Contactez-nous</h2>
-        <a href="mailto:contact@association-sportive.com" class="btn">Envoyer un Email</a>
+        <div class="course" onclick="toggleDescription('pilates')">
+            <img src="https://via.placeholder.com/100" alt="Pilates">
+            Pilates
+        </div>
+        <p id="pilates" class="hidden">Exercices doux pour renforcer les muscles profonds.</p>
+        
+        <div class="course" onclick="toggleDescription('cardiodance')">
+            <img src="https://via.placeholder.com/100" alt="Cardio Dance">
+            Cardio Dance
+        </div>
+        <p id="cardiodance" class="hidden">Cours de danse cardio énergisant.</p>
+        
+        <div class="course" onclick="toggleDescription('autre')">
+            <img src="https://via.placeholder.com/100" alt="Autre">
+            Autre
+        </div>
+        <p id="autre" class="hidden">Un autre cours sera ajouté prochainement.</p>
+        
+        <h2>Planning des cours</h2>
+        <table class="schedule-table">
+            <tr>
+                <th>Jour</th>
+                <th>Horaire</th>
+                <th>Cours</th>
+            </tr>
+            <tr>
+                <td>Lundi</td>
+                <td>18h30 - 19h30</td>
+                <td>Cuisses Abdos Fessiers</td>
+            </tr>
+            <tr>
+                <td>Lundi</td>
+                <td>19h45 - 20h30</td>
+                <td>Cardio Dance</td>
+            </tr>
+            <tr>
+                <td>Mercredi</td>
+                <td>12h30 - 13h15</td>
+                <td>Pilates / Renforcement sans impact</td>
+            </tr>
+            <tr>
+                <td>Vendredi</td>
+                <td>18h30 - 19h30</td>
+                <td>Cardio HIIT - Circuit training</td>
+            </tr>
+        </table>
+        
+        <h2>Réservez votre cours</h2>
+        <a href="https://booking.myrezapp.com/fr/online/booking/minisite/20503/lfitdance" target="_blank" style="color: yellow;">Réservez via Rezap</a>
     </div>
+    
     <footer>
-        &copy; 2025 LFIT&DANCE - Tous droits réservés.
+        <h2>Suivez-nous</h2>
+        <div class="social-links">
+            <a href="https://www.facebook.com/share/18g4Nar4eS/" target="_blank">Facebook</a> |
+            <a href="https://www.instagram.com/LFITDANCE" target="_blank">Instagram</a>
+        </div>
     </footer>
+    
+    <script>
+        function toggleDescription(id) {
+            let element = document.getElementById(id);
+            if (element.classList.contains('hidden')) {
+                element.classList.remove('hidden');
+            } else {
+                element.classList.add('hidden');
+            }
+        }
+    </script>
 </body>
 </html>
